@@ -13,7 +13,8 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-yt-dlp -x --audio-format mp3 "$1"
+CLEANED_URL=$(echo "$1" | sed 's/\\//g')
+yt-dlp -x --audio-format mp3 "$CLEANED_URL"
 
 # Check if the download was successful
 if [ $? -eq 0 ]; then

@@ -1,3 +1,39 @@
-# yt_media_utils
+# Media Downloader Script
 
-Used to download media, primarily using `youtube-dl`.
+This repository contains a simple shell script to download media files using the `youtube-dl` library. The script downloads files into a `./downloads` folder in the repository.
+
+## Prerequisites
+
+Before using the script, ensure that the following prerequisites are met:
+
+1. **youtube-dl**: The script relies on `youtube-dl` to download media files. Install `youtube-dl` if it's not already installed:
+
+   ```bash
+   sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+   sudo chmod a+rx /usr/local/bin/youtube-dl
+    ```
+
+Or, you can install it using pip:
+
+```bash
+pip install youtube-dl
+```
+
+**ffmpeg**: For converting media formats, ffmpeg may be required. Install it using the following command on macOS:
+```bash
+brew install ffmpeg
+```
+
+# How to Use
+1. Clone Repository
+2. Make the Script Executable (if applicable)
+3. Run the Script
+
+## Example
+```bash
+./download.sh "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+
+
+# Notes
+Currently this only supports audio files.
+```

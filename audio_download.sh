@@ -13,18 +13,11 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-# Create the downloads directory if it doesn't exist
-DOWNLOAD_DIR="./downloads"
-if [ ! -d "$DOWNLOAD_DIR" ]; then
-    mkdir -p "$DOWNLOAD_DIR"
-fi
-
-# Download the file to the downloads directory
-yt-dlp -o "$DOWNLOAD_DIR/%(title)s.%(ext)s" "$1"
+yt-dlp -x --audio-format mp3 "$1"
 
 # Check if the download was successful
 if [ $? -eq 0 ]; then
-    echo "Download completed successfully. File saved to $DOWNLOAD_DIR"
+    echo "Download completed successfully. Saved in current folder."
 else
     echo "Download failed. Please check the URL and try again."
 fi

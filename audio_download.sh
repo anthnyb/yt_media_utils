@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Check if youtube-dl is installed
+# Check if yt-dlp is installed
 if ! command -v yt-dlp &> /dev/null
 then
     echo "yt-dlp could not be found. Please install it first."
@@ -13,6 +13,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
+# Download audio file to current directory
 CLEANED_URL=$(echo "$1" | sed 's/\\//g')
 yt-dlp -x --audio-format mp3 "$CLEANED_URL"
 

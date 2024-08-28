@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Check if youtube-dl is installed
-if ! command -v youtube-dl &> /dev/null
+if ! command -v yt-dlp &> /dev/null
 then
-    echo "youtube-dl could not be found. Please install it first."
+    echo "yt-dlp could not be found. Please install it first."
     exit 1
 fi
 
@@ -20,7 +20,7 @@ if [ ! -d "$DOWNLOAD_DIR" ]; then
 fi
 
 # Download the file to the downloads directory
-youtube-dl -o "$DOWNLOAD_DIR/%(title)s.%(ext)s" "$1"
+yt-dlp -o "$DOWNLOAD_DIR/%(title)s.%(ext)s" "$1"
 
 # Check if the download was successful
 if [ $? -eq 0 ]; then
